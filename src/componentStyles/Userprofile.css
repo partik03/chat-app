@@ -1,0 +1,29 @@
+.user-section{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 3rem 0rem;
+
+}
+.user-details{
+    margin-left: 2rem;
+    color: white;
+}
+.user-details h1{
+    font-size: 2.5vw;
+}
+.user-posts{
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 2rem 0;
+
+}
+.user-posts button{
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 1.3rem;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}

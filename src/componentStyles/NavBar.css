@@ -1,0 +1,46 @@
+nav{
+    display: flex;
+color: white;
+height: 10vh;
+align-items: center;
+padding: 0.2rem 1rem;
+border-bottom: 2px solid white;
+}
+.left{
+    margin-right: auto;
+    background: transparent;
+    display: flex;
+    align-items: center;
+}
+.right{
+    /* margin-top: 0.5rem; */
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+.right children{
+    padding: 0 1rem;
+}
+a{
+    background-color: transparent;
+    background: transparent;
+}
+
+.btns{
+    background-color: black;
+    background: transparent;
+}
+.btns button{
+    padding: 0.4rem 0.8rem;
+    margin: 0rem 0.5rem;
+    color: white;
+    border: 2px white solid;
+    cursor: pointer;
+    border-radius: 0.7rem;
+    text-align: center;
+}
+.btns button:hover{
+    background: white;
+    color: black;
+}
+
