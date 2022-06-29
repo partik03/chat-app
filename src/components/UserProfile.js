@@ -3,7 +3,7 @@ import React from 'react'
 import { useData } from '../context/context'
 import '../componentStyles/Userprofile.css'
 const UserProfile = () => {
-  const {user} = useData()
+  const {user,userPosts} = useData()
   return (
     <div>
       {user &&
@@ -19,9 +19,26 @@ const UserProfile = () => {
           </div>
         </div>
           }
+         {
+              userPosts &&
           <div className="user-posts">
             <button>Your Posts</button>
+            <div className="your-posts">
+              {
+              userPosts.map((e)=>{
+                return(
+                  <>
+            <div className="postOut">
+            <img src={e.postImage} />
+            </div>
+            </>
+                )
+              })}
+            </div>
+            
+
           </div>
+}
     </div>
   )
 }

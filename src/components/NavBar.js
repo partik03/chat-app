@@ -9,9 +9,6 @@ import {IoAddCircleOutline} from 'react-icons/io5'
 import { BsChatDotsFill } from "react-icons/bs";
 const NavBar = () => {
   const {user,logout} = useData()
-  if(user){
-    console.log(user[0]);
-  }
   return (
     <div>
 <nav>
@@ -30,7 +27,11 @@ const NavBar = () => {
 :
 <div className='right btns'>
   <Link to='/addpost'>
-  <IoAddCircleOutline/>
+  <IoAddCircleOutline style={{
+    color:"white",
+    fontSize:"2rem",
+    
+  }}/>
   </Link>
   <button onClick={logout}>Logout</button>
   <Link to='/userchats'>

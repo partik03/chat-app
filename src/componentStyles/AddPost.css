@@ -1,0 +1,45 @@
+.inputForm{
+    display: flex;
+    justify-content: center;
+    margin: 20vh 0;
+}
+.formOri{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: rgb(54, 54, 54);
+    border-radius: 1rem;
+    box-shadow: black 0 1rem 1rem;
+    width: 30vw;
+}
+.inputForm input{
+    margin: 1rem 0;
+    width: 65%;
+    line-height: 2px;
+    padding: 1rem 3rem;
+    border: none;
+    background-color: white;
+    border-radius: 0.5rem;
+    outline-style: none;
+    font-size: 1rem;
+    background: rgb(61, 59, 59);
+    color: rgba(214, 199, 199, 0.934);
+    text-decoration: none;
+}
+.inputForm button{
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    width: 85%;
+    background: rgb(207, 85, 218);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+input:focus{
+    box-shadow: black 0rem 0.6rem 0.6rem;
+}
+#btn:hover{
+    filter: brightness(1.4);
+}

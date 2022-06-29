@@ -12,11 +12,12 @@ padding-left: 10vw;
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    padding: 1rem 10vw;
+    padding: 3rem 10vw;
     width: 40vw;
-border-left: none;
-background: transparent;
-       
+    border-left: none;
+    background: rgb(54, 54, 54);
+    box-shadow: black 0 1rem 1rem;
+    border-radius: 2rem;
 }
 .form input{
     width: 100%;
@@ -30,8 +31,7 @@ background: transparent;
     font-size: 1rem;
     background: rgb(61, 59, 59);
     color: rgba(214, 199, 199, 0.934);
-    /* color: rgb(99, 92, 92); */
- text-decoration: none;
+    text-decoration: none;
 
 }
 .form button{
@@ -47,18 +47,14 @@ background: transparent;
     filter: brightness(1.4);
 }
 .icons{
-    /* margin-left: auto; */
     padding: 1rem;
     float: right;
-    /* padding-left: 100%; */
-    /* text-align: center; */
-    /* min-width: 40px; */
     position: absolute;
     background: transparent;
 }
 .input-container {
     display: flex;
-    /* width: 100%; */
+    background: transparent;
     margin-bottom: 15px;
   }
 .special input{

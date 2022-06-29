@@ -11,18 +11,27 @@ import { db } from "./firebaseConfig/firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 import NavBar from './components/NavBar';
+import AddPost from './components/AddPost';
+import { ref } from 'firebase/storage';
 function App() {
   const auth =getAuth()
-  const {setUser,navigate,uid} = useData()
+  const {setUser,navigate,uid,setUserPosts,setPosts} = useData()
+  async function getData(id) {
+    const q = query(collection(db,'posts'),where('uid','==',id))
+    const querySnapshot = await getDocs(collection(db, "posts"));
+    const data = await getDocs(q)
+    setUserPosts(data.docs.map((e)=>({...e.data(),id:e.id})));
+    setPosts(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
+  }
   const getUserData =()=>{
     auth.onAuthStateChanged(userLogged=>{
       if(userLogged){
         async function getUser() {
           const uidVal = userLogged.uid
           const q = query(collection(db,'users'),where('uid','==',uidVal))
-          console.log(q);
           const data = await getDocs(q)
           setUser(data.docs.map((e)=>({...e.data(),id:e.id})))
+          getData(uidVal)
         }
         getUser()
       }
@@ -36,7 +45,7 @@ function App() {
     navigate('/login')
    }
    else{
-     getUserData()
+      getUserData()
    }
   },[uid])
   return ( 
@@ -51,6 +60,8 @@ function App() {
       <Route path='*' element={<Home/>}/>
       <Route path='/userprofile' element={<UserProfile/>}/>
       <Route path='/userchats' element={<UserChats/>}/>
+      <Route path='/addpost' element={<AddPost/>}/>
+      
    </Routes>
    </div>
    :

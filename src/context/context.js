@@ -8,9 +8,11 @@ const AuthContext = createContext({})
 
 export function AuthProvider ({children}){
     const navigate = useNavigate()
+    const [userPosts, setUserPosts] = useState(null)
     const [user, setUser] = useState(null)
     const [cookies,setCookies,removeCookies] = useCookies()
     const [uid, setUid] = useState(cookies.uid)
+    const [posts, setPosts] = useState(null)
     const setUidCookie =(uid)=>{
         setCookies('uid',uid,{path:"/"})
     }
@@ -19,7 +21,8 @@ export function AuthProvider ({children}){
         removeCookies('uid')
         navigate('/login')
     }
-
+    console.log(userPosts); 
+    console.log(posts); 
 return(
     <AuthContext.Provider 
     value={{
@@ -29,7 +32,11 @@ return(
         navigate,
         setUidCookie,
         uid,
-        setUid
+        setUid,
+        setUserPosts,
+        userPosts,
+        posts,
+        setPosts
     }}
     >
         {children}

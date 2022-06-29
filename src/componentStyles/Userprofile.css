@@ -17,6 +17,8 @@
     justify-content: center;
     color: white;
     padding: 2rem 0;
+    flex-direction: column;
+    align-items: center;
 
 }
 .user-posts button{
@@ -26,4 +28,28 @@
     background: transparent;
     border: 2px solid white;
     color: white;
+    width: fit-content;
+}
+.your-posts{
+    background: rgb(61, 59, 59);
+    margin: 2rem 0;
+    box-shadow: black 0 1rem 2rem;
+    border-radius: 2rem;
+    width: 85%;
+    display: flex;
+    /* overflow-x: scroll; */
+    padding: 3rem;
+}
+.postOut{
+    height: 70vh;
+    max-height: 90vh;
+    /* margin: 2rem; */
+    margin: 0 2rem;
+    width: 20vw;
+    display: flex;
+    align-items: center; 
+}
+.postOut img{
+    max-height: 100%;
+    width: 100%;
 }
