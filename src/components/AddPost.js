@@ -5,7 +5,7 @@ import "../componentStyles/AddPost.css"
 import { useData } from '../context/context'
 import { db, storage } from '../firebaseConfig/firebaseConfig'
 const AddPost = () => {
-    const {uid,navigate,user} = useData()
+    const {uid,navigate,user,setPosts} = useData()
     const [img, setImg] = useState()
     const descRef = useRef()
     function handleImg(e) {

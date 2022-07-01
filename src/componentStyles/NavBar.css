@@ -44,4 +44,62 @@ a{
     background: white;
     color: black;
 }
+.searchMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+.searchInner{
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    border-radius: 0.5rem;
+    
+}
+.button{
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: rgba(214, 199, 199, 0.934);
+    background: rgb(44, 40, 40);
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    cursor: pointer;
+}
+.button:hover{
+    filter: brightness(1.2);
+}
+.icons{
+    padding: 0.5rem;
+    padding-top: 1rem;
+    float: right;
+    position: absolute;
+    background: transparent;
+}
+.input-container {
+    display: flex;
+    background: transparent;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.input-container input {
+    margin: 0.3rem 0rem;
+    line-height: 2px;
+    width: 20vw;
+    padding: 0.5rem 2.2rem;
+    border: none;
+    background-color: white;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    outline-style: none;
+    font-size: 1rem;
+    background: rgb(61, 59, 59);
+    color: rgba(214, 199, 199, 0.934);
+    text-decoration: none;
+    margin-top: 1.3rem;
+}
+.input-container input:focus{
+    box-shadow: none;
+}
 

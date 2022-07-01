@@ -23,10 +23,13 @@ const Post = ({el}) => {
             <img src={el.postImage} alt="" />
             </div>
             <div className="bottom">
-                <h4>{el.username}</h4>
-            <p style={{
-                marginLeft:"1rem"
-            }}>{el.desc}</p>
+                <span
+                style={{
+                    marginRight:'1rem',
+                    fontWeight:'bolder'
+                }}
+                >{el.username}</span>
+           {el.desc}
             </div>
         </div>
     </div>

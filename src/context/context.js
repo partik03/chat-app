@@ -13,6 +13,7 @@ export function AuthProvider ({children}){
     const [cookies,setCookies,removeCookies] = useCookies()
     const [uid, setUid] = useState(cookies.uid)
     const [posts, setPosts] = useState(null)
+    const [search, setSearch] = useState('')
     const setUidCookie =(uid)=>{
         setCookies('uid',uid,{path:"/"})
     }
@@ -36,7 +37,9 @@ return(
         setUserPosts,
         userPosts,
         posts,
-        setPosts
+        setPosts,
+        search,
+        setSearch
     }}
     >
         {children}

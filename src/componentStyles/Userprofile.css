@@ -36,15 +36,15 @@
     box-shadow: black 0 1rem 2rem;
     border-radius: 2rem;
     width: 85%;
-    display: flex;
-    /* overflow-x: scroll; */
-    padding: 3rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 2rem;
 }
 .postOut{
     height: 70vh;
     max-height: 90vh;
     /* margin: 2rem; */
-    margin: 0 2rem;
+    margin: 0 1rem;
     width: 20vw;
     display: flex;
     align-items: center; 
@@ -52,4 +52,17 @@
 .postOut img{
     max-height: 100%;
     width: 100%;
+}
+.msg-btn{
+    padding: 0.6rem 1rem;
+    background: transparent;
+    color: white;
+    margin-left: 1rem;
+    border: white 2px solid;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.msg-btn:hover{
+    background: white;
+    color: black;
 }

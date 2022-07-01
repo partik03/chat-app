@@ -13,6 +13,7 @@ import { getAuth } from 'firebase/auth';
 import NavBar from './components/NavBar';
 import AddPost from './components/AddPost';
 import { ref } from 'firebase/storage';
+import FriendProfile from './components/FriendProfile';
 function App() {
   const auth =getAuth()
   const {setUser,navigate,uid,setUserPosts,setPosts} = useData()
@@ -59,6 +60,7 @@ function App() {
       <Route exact path ="/signup" element={<SignUp/>}/>
       <Route path='*' element={<Home/>}/>
       <Route path='/userprofile' element={<UserProfile/>}/>
+      <Route path='/friendprofile/:fuseruid' element={<FriendProfile/>}/>
       <Route path='/userchats' element={<UserChats/>}/>
       <Route path='/addpost' element={<AddPost/>}/>
       

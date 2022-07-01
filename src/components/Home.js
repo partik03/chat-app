@@ -11,7 +11,8 @@ const Home = () => {
       {
         posts && 
         <div className="posts">
-      {  posts.map((e)=>{
+      {  
+      posts.map((e)=>{
         return <Post el={e} />
         
       })}

@@ -24,7 +24,6 @@ body{
 }
 .posts{
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   width: 40vw;
@@ -34,4 +33,14 @@ body{
 }
 .posts::-webkit-scrollbar {
   display: none;
+}
+@media(max-width:800px){
+  .posts{
+    width: 60vw;
+  }
+}
+@media(max-width:600px){
+  .posts{
+    width: 80vw;
+  }
 }

@@ -22,7 +22,13 @@ const UserProfile = () => {
          {
               userPosts &&
           <div className="user-posts">
-            <button>Your Posts</button>
+            <button
+            style={{
+              padding:'1rem',
+              fontSize:'1.4rem',
+              fontWeight:'bold'
+          }}
+            >Your Posts</button>
             <div className="your-posts">
               {
               userPosts.map((e)=>{

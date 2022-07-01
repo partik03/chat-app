@@ -1,14 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from "react-router-dom"
 import "../componentStyles/NavBar.css"
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import ChatBubbleRoundedIcon from '@mui/icons-material/ChatBubbleRounded';
 import { useData } from '../context/context';
 import { Avatar } from '@mui/material';
-import {IoAddCircleOutline} from 'react-icons/io5'
+import {IoAddCircleOutline, IoSearchCircleOutline, IoSearchOutline} from 'react-icons/io5'
 import { BsChatDotsFill } from "react-icons/bs";
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebaseConfig/firebaseConfig';
 const NavBar = () => {
-  const {user,logout} = useData()
+  const {user,logout,navigate} = useData()
+  const [search, setSearch] = useState('')
+  // const [users, setUsers] = useState()
+  const [userSearchData, setUserSearchData] = useState('')
+ 
+ const handleSearch=async() => {
+    console.log("singh");
+    const getUser = async() =>{
+      const q = query(collection(db,'users'),where('email','==',search))
+      const data  = await getDocs(q)
+      setUserSearchData(data.docs.map((e)=>({...e.data(),id:e.id})))
+      console.log(userSearchData);
+    
+    }
+       getUser();
+       if (userSearchData.length!=0 ) {
+        navigate(`/friendprofile/${userSearchData[0].uid}`)
+       }
+      console.log(userSearchData);
+    // setSearch('')
+  }
+  // const getUsers =async()=>{
+  //   const data =await getDocs(collection(db,'users'));
+  //   setUsers(data.docs.map((e)=>({...e.data(),id:e.id})))
+  //   console.log(users);
+
+  // }
   return (
     <div>
 <nav>
@@ -18,35 +46,57 @@ const NavBar = () => {
       <SendRoundedIcon style={{fontSize:"2rem",color:"blue"}}/>
     </Link>
     </div>
+   {user &&  
+  <div className='searchMain'>
+    <div className="searchInner">
+   <div className='input-container'>
+      <input 
+      type="text"
+      value={search}
+      onChange={(e)=>setSearch(e.target.value)}
+      />
+      <IoSearchOutline
+       className='icons'
+      />
+    </div>
+      <div 
+      className="button"
+      onClick={handleSearch}
+      >
+        Search
+      </div>
+    </div>
+    </div>
+}
 {
   !user?
-<div className="btns">
-    <Link to='/login'><button>Login</button></Link>
-    <Link to='/signup'><button>SignUp</button></Link>
-</div>
-:
-<div className='right btns'>
-  <Link to='/addpost'>
-  <IoAddCircleOutline style={{
-    color:"white",
-    fontSize:"2rem",
-    
-  }}/>
-  </Link>
-  <button onClick={logout}>Logout</button>
-  <Link to='/userchats'>
-  <BsChatDotsFill style={{
-    fontSize:"2rem",
-    color:"white"
-  }}/>
-  </Link>
-<Link to='/userprofile'><Avatar src={user[0].profimage} style={{
-  fontSize:"2rem",
-  width:"2rem",
-  height:'2rem',
-  margin:"0 0 0 1rem"
-}}/></Link>
-</div>
+        <div className="btns">
+            <Link to='/login'><button>Login</button></Link>
+            <Link to='/signup'><button>SignUp</button></Link>
+        </div>
+        :
+        <div className='right btns'>
+          <Link to='/addpost'>
+          <IoAddCircleOutline style={{
+            color:"white",
+            fontSize:"2rem",
+            
+          }}/>
+          </Link>
+          <button onClick={logout}>Logout</button>
+          <Link to='/userchats'>
+          <BsChatDotsFill style={{
+            fontSize:"2rem",
+            color:"white"
+          }}/>
+          </Link>
+        <Link to='/userprofile'><Avatar src={user[0].profimage} style={{
+          fontSize:"2rem",
+          width:"2rem",
+          height:'2rem',
+          margin:"0 0 0 1rem"
+        }}/></Link>
+        </div>
 
 }
 </nav>
