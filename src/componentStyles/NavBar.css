@@ -3,7 +3,7 @@ nav{
 color: white;
 height: 10vh;
 align-items: center;
-padding: 0.2rem 1rem;
+/* padding: 0.2rem 1rem; */
 border-bottom: 2px solid white;
 }
 .left{
@@ -62,7 +62,7 @@ a{
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     color: rgba(214, 199, 199, 0.934);
-    background: rgb(44, 40, 40);
+    background: rgb(29, 26, 26);
     border-bottom-right-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     cursor: pointer;
@@ -102,7 +102,61 @@ a{
 .input-container1 input:focus{
     box-shadow: none;
 }
+.nav-menu{
+    display: flex;
+    flex-direction: column;
+    background: rgb(65, 65, 66);
+    top: 10.5vh;
+    width: 100%;
+    position: absolute;
+    height: 18rem;
+    z-index: 101;
+    padding: 2rem 0;
+    align-items: center;
+    left: -120%;
+    transition: all ease-in-out 900ms;
+}
+.active{
+    left: 0;
+    width: 100%;
+}
+.nav-menu button{
+    padding: 1rem 2rem;
+    width: 50vw;
+    margin: 0.5rem 0;
+    font-size: large;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 2px white solid;
+    color: white;
+    cursor: pointer;
+
+}
+.nav-menu button:hover{
+    color: black;
+    background: white;
+}
+#nav-menu-search{
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+#nav-menu-search input{
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    width: 40vw;
+}
+#nav-menu-searchInner{
+    height: 3.4rem;
+    background: red;
+}
+#btn{
+    text-align: center;
+    padding: 1.2rem;
+}
 #searchIcon{
+    display: none;
+}
+.menuIcon{
     display: none;
 }
 @media(max-width:700px){
@@ -112,12 +166,20 @@ a{
     #searchIcon{
         display: block;
     }
-    
+    #nav-menu-search{
+        display: block;
+    }
 }
 @media(max-width:400px){
     .btns{
         display: none;
     }
-    
-
+    .menuIcon{
+        display: block;
+    }
+}
+@media(min-width:400px){
+    .nav-menu{
+        left: -120%;
+    }
 }

@@ -11,7 +11,7 @@
     background: rgb(54, 54, 54);
     border-radius: 1rem;
     box-shadow: black 0 1rem 1rem;
-    width: 30vw;
+    width: 40vw;
 }
 .inputForm input{
     margin: 1rem 0;
@@ -42,4 +42,10 @@ input:focus{
 }
 #btn:hover{
     filter: brightness(1.4);
+}
+
+@media(max-width:700px){
+    .formOri{
+        width: 70%;
+    }
 }

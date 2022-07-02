@@ -15,7 +15,7 @@ const NavBar = () => {
   const [search, setSearch] = useState('')
   // const [users, setUsers] = useState()
   const [userSearchData, setUserSearchData] = useState('')
- 
+  const [active, setActive] = useState(false)
  const handleSearch=async() => {
     console.log("singh");
     const getUser = async() =>{
@@ -30,8 +30,9 @@ const NavBar = () => {
         navigate(`/friendprofile/${userSearchData[0].uid}`)
        }
       console.log(userSearchData);
-    // setSearch('')
-  }
+      
+      // setSearch('')
+    }
   // const getUsers =async()=>{
   //   const data =await getDocs(collection(db,'users'));
   //   setUsers(data.docs.map((e)=>({...e.data(),id:e.id})))
@@ -71,17 +72,27 @@ const NavBar = () => {
 }
 {
   !user?
+  <>
         <div className="btns">
             <Link to='/login'><button>Login</button></Link>
             <Link to='/signup'><button>SignUp</button></Link>
         </div>
+        <AiOutlineMenuFold
+        style={{
+          fontSize:'2rem',
+          color:'white'
+        }}
+        className="menuIcon"
+        />
+  </>
         :
+        <>
         <div className='right btns'>
           <IoSearchCircleOutline id='searchIcon'
           style={{
             color:"white",
             fontSize:"2.4rem",
-
+            
           }}
           />
           <Link to='/addpost'>
@@ -105,9 +116,59 @@ const NavBar = () => {
           margin:"0 0 0 1rem"
         }}/></Link>
         </div>
-
+      <AiOutlineMenuFold
+      style={{
+        fontSize:'2rem',
+        color:'white'
+      }}
+      className="menuIcon"
+      onClick={()=>{setActive(!active)}}
+      />
+      </>
 }
-</nav>
+{user && <div className={`nav-menu ${active?'active':''}`}>
+
+        <div className='searchMain' id='nav-menu-search'>
+          <div className="searchInner" id='nav-menu-searchInner'>
+         <div className='input-container1'>
+            <input 
+            type="text"
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
+            />
+            <IoSearchOutline
+             className='icons1'
+            />
+          </div>
+            <div 
+            className="button"
+            onClick={()=>{handleSearch();setActive(!active)}}
+            id='btn'
+            >
+              Search
+            </div>
+          </div>
+          </div>
+      <button onClick={()=>{logout();setActive(!active);}}>Logout</button>
+          <Link to='/userchats'>
+          <button onClick={()=>setActive(!active)}>Chats</button>
+          </Link>
+          <Link to='/addpost'>
+          <button onClick={()=>setActive(!active)}>Add Post</button>
+          </Link>
+      <Link  to='/userprofile'><Avatar onClick={()=>setActive(!active)} src={user[0].profimage} style={{
+        width:"3rem",
+        height:'3rem',
+        margin:"0 0 10rem 1rem",
+        position: "absolute",
+        top: "2%",
+        right: "2%",
+      }}
+      className='profileAvatar'
+      /></Link>
+
+  </div>}
+  </nav>
 
     </div>
   )
