@@ -5,7 +5,8 @@ import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import ChatBubbleRoundedIcon from '@mui/icons-material/ChatBubbleRounded';
 import { useData } from '../context/context';
 import { Avatar } from '@mui/material';
-import {IoAddCircleOutline, IoSearchCircleOutline, IoSearchOutline} from 'react-icons/io5'
+import {IoAddCircleOutline, IoSearchOutline,IoSearchCircleOutline} from 'react-icons/io5'
+import { AiOutlineMenuFold } from "react-icons/ai";
 import { BsChatDotsFill } from "react-icons/bs";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebaseConfig/firebaseConfig';
@@ -49,14 +50,14 @@ const NavBar = () => {
    {user &&  
   <div className='searchMain'>
     <div className="searchInner">
-   <div className='input-container'>
+   <div className='input-container1'>
       <input 
       type="text"
       value={search}
       onChange={(e)=>setSearch(e.target.value)}
       />
       <IoSearchOutline
-       className='icons'
+       className='icons1'
       />
     </div>
       <div 
@@ -76,6 +77,13 @@ const NavBar = () => {
         </div>
         :
         <div className='right btns'>
+          <IoSearchCircleOutline id='searchIcon'
+          style={{
+            color:"white",
+            fontSize:"2.4rem",
+
+          }}
+          />
           <Link to='/addpost'>
           <IoAddCircleOutline style={{
             color:"white",

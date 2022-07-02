@@ -2,7 +2,11 @@ import React from 'react'
 
 const UserChats = () => {
   return (
-    <div>
+    <div
+    style={{
+      color:'white'
+    }}
+    >
         UserChats
     </div>
   )

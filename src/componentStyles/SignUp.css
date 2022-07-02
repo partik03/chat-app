@@ -3,24 +3,30 @@ h1{
 }
 .formOuter{
     height: 80vh;
-color: white;
-display: flex;
-flex-direction: column;
-padding-left: 10vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10vw;
 }
 .form{
     display: flex;
     flex-direction: column;
     margin: 1rem;
-    padding: 3rem 10vw;
     width: 40vw;
+    padding: 3rem 10vw;
     border-left: none;
     background: rgb(54, 54, 54);
     box-shadow: black 0 1rem 1rem;
     border-radius: 2rem;
 }
-.form input{
-    width: 100%;
+.input-container {
+    display: flex;
+    background: transparent;
+    margin-bottom: 15px;
+}
+/* .form input{ */
+    .form input{
+        width: 100%;
     margin: 0.3rem 0rem;
     line-height: 2px;
     padding: 1rem 3rem;
@@ -52,15 +58,19 @@ padding-left: 10vw;
     position: absolute;
     background: transparent;
 }
-.input-container {
-    display: flex;
-    background: transparent;
-    margin-bottom: 15px;
-}
+
 .special input{
     line-height: 2rem;
     width: 40vw;
 }
 .special svg{
-padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem;
+}
+@media(max-width:500px){
+    .form{
+        width: 70%;
+    }
+    .formOuter{
+        padding: 0 5vw;
+    }
 }

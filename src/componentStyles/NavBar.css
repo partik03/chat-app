@@ -70,20 +70,20 @@ a{
 .button:hover{
     filter: brightness(1.2);
 }
-.icons{
+.icons1{
     padding: 0.5rem;
-    padding-top: 1rem;
+    padding-top: 1.4rem;
     float: right;
     position: absolute;
     background: transparent;
 }
-.input-container {
+.input-container1 {
     display: flex;
     background: transparent;
     align-items: center;
     margin-bottom: 15px;
 }
-.input-container input {
+.input-container1 input {
     margin: 0.3rem 0rem;
     line-height: 2px;
     width: 20vw;
@@ -99,7 +99,25 @@ a{
     text-decoration: none;
     margin-top: 1.3rem;
 }
-.input-container input:focus{
+.input-container1 input:focus{
     box-shadow: none;
 }
+#searchIcon{
+    display: none;
+}
+@media(max-width:700px){
+    .searchMain{
+        display: none;
+    }
+    #searchIcon{
+        display: block;
+    }
+    
+}
+@media(max-width:400px){
+    .btns{
+        display: none;
+    }
+    
 
+}
