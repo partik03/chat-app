@@ -14,6 +14,7 @@ import NavBar from './components/NavBar';
 import AddPost from './components/AddPost';
 import { ref } from 'firebase/storage';
 import FriendProfile from './components/FriendProfile';
+import PtoPMsg from './components/Chat_Components/PtoPMsg';
 function App() {
   const auth =getAuth()
   const {setUser,navigate,uid,setUserPosts,setPosts} = useData()
@@ -63,7 +64,7 @@ function App() {
       <Route path='/friendprofile/:fuseruid' element={<FriendProfile/>}/>
       <Route path='/userchats' element={<UserChats/>}/>
       <Route path='/addpost' element={<AddPost/>}/>
-      
+      <Route path='/p2pmsg/:fuseruid' element={<PtoPMsg/>} />
    </Routes>
    </div>
    :

@@ -1,0 +1,99 @@
+.msg-main{
+    /* background: red; */
+    display: flex;
+    /* background: black; */
+    /* flex-flow: column; */
+    height: 100vh;
+    justify-content: center;
+}
+.msg-inner{
+    /* background: rgb(94, 87, 87); */
+    width: 70%;
+    height: 100%;
+    border: 1px white solid;
+    margin: 1rem 0;
+}
+.msg-nav{
+    /* background: rgb(43, 0, 255);
+    background: rgb(7, 25, 71); */
+    background: rgb(37, 36, 36);
+    background: transparent;
+    height: 13%;
+    display: flex;
+    border-bottom: 1px white solid;
+    align-items: center;
+    /* justify-content: space-between; */
+    color: whitesmoke;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 1rem;
+}
+.msg-section{
+    width: 100%;
+    height: 73%;
+    /* border-bottom: 1px white solid; */
+    /* background-image: url(../components/Chat_Components/chat-back.jpg); */
+    background: rgba(35, 34, 34, 0.747);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background: transparent;
+    overflow-y: scroll;
+}
+.msg-section::-webkit-scrollbar{
+    background: transparent;
+    display: none;
+}
+.msg-section::-webkit-scrollbar-track{
+    background: transparent;
+    display: none;
+}
+.msg-section::-webkit-scrollbar-thumb{
+    background: transparent;
+    display: none;
+
+}
+.msg-input{
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    height: 14%;
+    border-bottom: 1px white solid;
+    border-top: 1px white solid;
+    /* margin-top: auto; */
+}
+.msg-input input{
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin: 0 1rem 0rem 2rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background: rgb(65, 68, 74);
+    color: white;
+
+}
+.msg-input input:focus{
+box-shadow: none;
+}
+.msg{
+    background: rgb(58, 88, 73);
+    width: fit-content;
+    padding: 0.003mm 10px;
+    margin: 9px 0px;
+    border-radius: 0.5rem;
+    font-size: 1.1em;
+    color: white;
+
+}
+.left-msg{
+    margin-right: auto;
+    background: rgb(171, 186, 7);
+    margin-left: 3%;
+}
+.right-msg{
+    margin-left: auto;
+    margin-right: 3%;
+    background: rgb(150, 129, 129);
+}

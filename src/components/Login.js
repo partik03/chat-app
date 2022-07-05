@@ -37,7 +37,7 @@ const Login = () => {
         <form className='form' onSubmit={handleSubmit}>
           <div className="input-container">
 
-          <input type="text" placeholder='Enter your username' ref={emailRef}/>
+          <input type="text" placeholder='Enter your email' ref={emailRef}/>
           <PersonIcon className='icons'/>
                     </div>
                     <div className="input-container">

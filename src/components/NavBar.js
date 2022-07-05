@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {Link} from "react-router-dom"
 import "../componentStyles/NavBar.css"
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
@@ -26,7 +26,7 @@ const NavBar = () => {
     
     }
        getUser();
-       if (userSearchData.length!=0 ) {
+       if (userSearchData.length!==0 ) {
         navigate(`/friendprofile/${userSearchData[0].uid}`)
        }
       console.log(userSearchData);
@@ -119,7 +119,8 @@ const NavBar = () => {
       <AiOutlineMenuFold
       style={{
         fontSize:'2rem',
-        color:'white'
+        color:'white',
+        cursor:'pointer'
       }}
       className="menuIcon"
       onClick={()=>{setActive(!active)}}
@@ -149,13 +150,13 @@ const NavBar = () => {
             </div>
           </div>
           </div>
-      <button onClick={()=>{logout();setActive(!active);}}>Logout</button>
           <Link to='/userchats'>
           <button onClick={()=>setActive(!active)}>Chats</button>
           </Link>
           <Link to='/addpost'>
           <button onClick={()=>setActive(!active)}>Add Post</button>
           </Link>
+      <button onClick={()=>{logout();setActive(!active);}}>Logout</button>
       <Link  to='/userprofile'><Avatar onClick={()=>setActive(!active)} src={user[0].profimage} style={{
         width:"3rem",
         height:'3rem',

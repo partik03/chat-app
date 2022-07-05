@@ -3,7 +3,7 @@ nav{
 color: white;
 height: 10vh;
 align-items: center;
-/* padding: 0.2rem 1rem; */
+padding: 0.2rem 1rem;
 border-bottom: 2px solid white;
 }
 .left{
@@ -169,8 +169,6 @@ a{
     #nav-menu-search{
         display: block;
     }
-}
-@media(max-width:400px){
     .btns{
         display: none;
     }
@@ -178,7 +176,7 @@ a{
         display: block;
     }
 }
-@media(min-width:400px){
+@media(min-width:700px){
     .nav-menu{
         left: -120%;
     }

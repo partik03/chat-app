@@ -14,6 +14,21 @@ export function AuthProvider ({children}){
     const [uid, setUid] = useState(cookies.uid)
     const [posts, setPosts] = useState(null)
     const [search, setSearch] = useState('')
+    if(posts){
+        posts.sort((a,b)=>{
+          return b.date - a.date;
+        })
+      }
+    if(userPosts){
+        userPosts.sort((a,b)=>{
+          return b.date - a.date;
+        })
+      }
+    if(posts){
+        posts.sort((a,b)=>{
+          return b.date - a.date;
+        })
+      }
     const setUidCookie =(uid)=>{
         setCookies('uid',uid,{path:"/"})
     }
