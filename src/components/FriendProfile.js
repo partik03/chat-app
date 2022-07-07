@@ -6,7 +6,7 @@ import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebaseConfig/firebaseConfig';
 import { Link, useParams } from 'react-router-dom';
 const FriendProfile = () => {
-    const {user} = useData()
+    const {user,cookies} = useData()
     const { fuseruid } = useParams()
     const [friendData, setFriendData] = useState()
     const [friendPosts, setFriendPosts] = useState()

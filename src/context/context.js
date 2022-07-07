@@ -54,7 +54,8 @@ return(
         posts,
         setPosts,
         search,
-        setSearch
+        setSearch,
+        cookies
     }}
     >
         {children}

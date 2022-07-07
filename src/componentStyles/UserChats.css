@@ -1,0 +1,29 @@
+.userchats{
+    background: red;
+    padding: 2rem 1rem;
+    margin: 2rem;
+    border-radius: 2rem;
+    background: rgb(61, 59, 59);
+    box-shadow: black 0 1rem 2rem;
+    overflow-y: scroll;
+    max-height: 65vh;
+}
+.userchats::-webkit-scrollbar {
+    display: none;
+  }
+.chat-nav{
+    background: #2B2B2B;
+    box-shadow: black 0 0.5rem 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 2.5vw;
+    border-radius: 1rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    margin: 1rem;
+}
+.userchats a{
+text-decoration: none;
+color: white;
+}

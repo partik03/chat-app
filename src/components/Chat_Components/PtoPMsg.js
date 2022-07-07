@@ -10,7 +10,7 @@ import { AiOutlineSend } from "react-icons/ai";
 import EmojiPicker from 'emoji-picker-react'
 import { async } from '@firebase/util'
 const PtoPMsg = () => {
-    const {user} = useData()
+    const {user,navigate} = useData()
     const {fuseruid} = useParams()
     const [showEmoji, setShowEmoji] = useState(false)
     const [messages, setMessages] = useState([])
@@ -59,17 +59,18 @@ const PtoPMsg = () => {
    let hours = dateObj.getHours();
    let mins = dateObj.getMinutes();
    let seconds = dateObj.getSeconds();
+   const getMsgs =async()=>{
+    const postsref = collection(db , `chats-${msgData}`)
+    const q = query(postsref , orderBy('date','asc'));
+    const querySnapshot = await getDocs(q);
+    console.log(querySnapshot);
+    setMessages(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
+  }
       useEffect(() => {
-        const getMsgs =async()=>{
-          const postsref = collection(db , `chats-${msgData}`)
-          const q = query(postsref , orderBy('date','asc'));
-          const querySnapshot = await getDocs(q);
-          console.log(querySnapshot);
-          setMessages(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
-        }
-        getMsgs()
-        console.log(messages);
-      },[messages])
+          getMsgs()
+        if(messages)
+           console.log(messages);
+      },[])
       
    const sendMsg = (e)=>{
     e.preventDefault();
@@ -79,6 +80,7 @@ const PtoPMsg = () => {
     })
     .then((data)=>{
       console.log(data);
+      getMsgs();
       console.log("Msg saved to db successfully");
       setTypedMsg('')
     })
@@ -96,10 +98,12 @@ const PtoPMsg = () => {
          {friendData[0].username} 
     </div>
     <div className="msg-section">
-      {messages ?
-    <div>
-      {messages.map((e)=>
-        (<div key={e.id}>
+      {
+      messages ?
+       <div>
+      {messages &&  messages.map((e)=>{
+        return(
+        <div>
           {
             e.from == user[0].uid ?
             <div className='right-msg msg'>
@@ -110,10 +114,12 @@ const PtoPMsg = () => {
               <p>{e.typedMsg}</p>
             </div>
           }
-        </div>
+         </div>
         )
+      }
       )}
     </div>  
+   
     :
     <div>
       NO Messages
