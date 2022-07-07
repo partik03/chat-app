@@ -56,10 +56,10 @@ function App() {
   { uid ?
   <div>
   <Routes>
-      {/* <Route exact path="/" element={<Home/>}/> */}
+      <Route exact path="/" element={<Home/>}/>
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path ="/signup" element={<SignUp/>}/>
-      <Route path='*' element={<Home/>}/>
+      {/* <Route path='*' element={<Home/>}/> */}
       <Route path='/userprofile' element={<UserProfile/>}/>
       <Route path='/friendprofile/:fuseruid' element={<FriendProfile/>}/>
       <Route path='/userchats' element={<UserChats/>}/>
