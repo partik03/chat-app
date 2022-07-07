@@ -42,11 +42,13 @@ createUserWithEmailAndPassword(auth,emailRef.current.value,passwordRef.current.v
         uid:user.uid
       }).then(()=>{
         console.log("User added successfully");
+        alert('User Added Successfully');
         setTimeout(()=>{
           navigate('/login')
         },2000)
       }).catch((err)=>{
         console.log(err);
+        alert('Something Went Wrong Try Again');
       })
     })
   }).catch(err=>{

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import UserProfile from './components/UserProfile';
 import UserChats from './components/UserChats';
 import { db } from "./firebaseConfig/firebaseConfig";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 import NavBar from './components/NavBar';
 import AddPost from './components/AddPost';
@@ -20,7 +20,7 @@ function App() {
   const {setUser,navigate,uid,setUserPosts,setPosts,cookies,postBool} = useData()
   async function getData(id) {
     const q = query(collection(db,'posts'),where('uid','==',id))
-    const querySnapshot = await getDocs(collection(db, "posts"));
+    const querySnapshot = await getDocs(collection(db, "posts"),orderBy('date','desc'));
     const data = await getDocs(q)
     setUserPosts(data.docs.map((e)=>({...e.data(),id:e.id})));
     setPosts(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
@@ -49,7 +49,7 @@ function App() {
    else{
       getUserData()
    }
-  },[uid,postBool])
+  },[uid,postBool,cookies.uid])
   return ( 
     <>
     <NavBar/>
@@ -79,5 +79,4 @@ function App() {
    </>
   );
 }
-
 export default App;

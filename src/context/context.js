@@ -38,8 +38,6 @@ export function AuthProvider ({children}){
         removeCookies('uid')
         navigate('/login')
     }
-    console.log(userPosts); 
-    console.log(posts); 
 return(
     <AuthContext.Provider 
     value={{

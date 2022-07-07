@@ -17,13 +17,11 @@ const NavBar = () => {
   const [userSearchData, setUserSearchData] = useState('')
   const [active, setActive] = useState(false)
  const handleSearch=async() => {
-    console.log("singh");
     const getUser = async() =>{
       const q = query(collection(db,'users'),where('email','==',search))
       const data  = await getDocs(q)
       setUserSearchData(data.docs.map((e)=>({...e.data(),id:e.id})))
       console.log(userSearchData);
-    
     }
        getUser();
        if (userSearchData.length!==0 ) {
@@ -56,6 +54,7 @@ const NavBar = () => {
       type="text"
       value={search}
       onChange={(e)=>setSearch(e.target.value)}
+      placeholder="Enter Your Friend's Email"
       />
       <IoSearchOutline
        className='icons1'
@@ -136,6 +135,7 @@ const NavBar = () => {
             type="text"
             value={search}
             onChange={(e)=>setSearch(e.target.value)}
+            placeholder="Enter Your Friend's Email"
             />
             <IoSearchOutline
              className='icons1'

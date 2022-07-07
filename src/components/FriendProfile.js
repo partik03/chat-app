@@ -52,6 +52,10 @@ const FriendProfile = () => {
                 fuseruid:user[0].uid,
                 fprofilepic:user[0].profimage,fusername:user[0].username,
               })
+              addDoc(collection(db,`allchats-${user[0].uid}`),{
+                fuseruid:friendData[0].uid,
+                fprofilepic:friendData[0].profimage,fusername:friendData[0].username,
+              })
              
             }
           })

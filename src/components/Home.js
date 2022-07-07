@@ -5,18 +5,22 @@ import Post from './Post'
 const Home = () => {
   const {posts} = useData()
 
-  console.log(posts);
+  // console.log(posts);
   return (
     <>
     <div className="postMain">
       {
-        posts && 
+        posts ? 
         <div className="posts">
       {  
       posts.map((e)=>{
         return <Post el={e} />
         
       })}
+      </div>
+      :
+      <div>
+        <h1 style={{color:'white'}}>No Posts</h1>
       </div>
       }
     </div>

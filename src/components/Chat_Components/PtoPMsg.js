@@ -26,6 +26,13 @@ const PtoPMsg = () => {
     useEffect(() => {
       getUser()
     }, [])
+    const getMsgs =async()=>{
+      const postsref = collection(db , `chats-${msgData}`)
+      const q = query(postsref , orderBy('date','asc'));
+      const querySnapshot = await getDocs(q);
+      console.log(querySnapshot);
+      setMessages(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
+    }
     let currentUser = friendData[0];
     let msgData;
     useEffect(() => {
@@ -37,12 +44,15 @@ const PtoPMsg = () => {
             msgData = `${fuseruid}_${user[0].uid}`
     
         }
+        getMsgs()
+          console.log('h');
+        if(messages)
+           console.log(messages);
       }
     })
     const [typedMsg, setTypedMsg] = useState('')
     const onEmojiClick =(event, emojiObject)=>{
       setTypedMsg(typedMsg+emojiObject.emoji);
-    
     }
    const emoji= useCallback(
      () => {
@@ -59,18 +69,10 @@ const PtoPMsg = () => {
    let hours = dateObj.getHours();
    let mins = dateObj.getMinutes();
    let seconds = dateObj.getSeconds();
-   const getMsgs =async()=>{
-    const postsref = collection(db , `chats-${msgData}`)
-    const q = query(postsref , orderBy('date','asc'));
-    const querySnapshot = await getDocs(q);
-    console.log(querySnapshot);
-    setMessages(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
-  }
-      useEffect(() => {
-          getMsgs()
-        if(messages)
-           console.log(messages);
-      },[])
+  
+      // useEffect(() => {
+          
+      // },[])
       
    const sendMsg = (e)=>{
     e.preventDefault();

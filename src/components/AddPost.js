@@ -5,7 +5,7 @@ import "../componentStyles/AddPost.css"
 import { useData } from '../context/context'
 import { db, storage } from '../firebaseConfig/firebaseConfig'
 const AddPost = () => {
-    const {uid,navigate,user,setPosts,setPostBool,postBool} = useData()
+    const {uid,navigate,user,setPosts,setPostBool,postBool,posts} = useData()
     const [img, setImg] = useState()
     const descRef = useRef()
     function handleImg(e) {
@@ -13,6 +13,14 @@ const AddPost = () => {
         console.log(setImage);
         setImg(setImage);
     }
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() +1 ;
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+    let hours = dateObj.getHours();
+    let mins = dateObj.getMinutes();
+    let seconds = dateObj.getSeconds();
+    let newDate = `${year}${month}${day}${hours}${mins}${seconds}`;
     function handleSubmit(e) {
        e.preventDefault();
         const storageRef = ref(storage,`post-images/${Date.now()}`)
@@ -25,9 +33,12 @@ const AddPost = () => {
                     profImg:user[0].profimage,
                     email:user[0].email,
                     username:user[0].username,
+                    date: newDate,
                 }
+                // setPosts({...pos})
                 ).then(()=>{
                     console.log("Post added successfully");
+                    alert("Post added successfully");
                     setPostBool(!postBool)
                     setTimeout(() => {
                         navigate('/')
