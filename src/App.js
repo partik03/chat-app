@@ -17,7 +17,7 @@ import FriendProfile from './components/FriendProfile';
 import PtoPMsg from './components/Chat_Components/PtoPMsg';
 function App() {
   const auth =getAuth()
-  const {setUser,navigate,uid,setUserPosts,setPosts} = useData()
+  const {setUser,navigate,uid,setUserPosts,setPosts,cookies} = useData()
   async function getData(id) {
     const q = query(collection(db,'posts'),where('uid','==',id))
     const querySnapshot = await getDocs(collection(db, "posts"));
@@ -43,7 +43,7 @@ function App() {
     })
   }
   useEffect(() => {
-   if(!uid){
+   if(!cookies.uid){
     navigate('/login')
    }
    else{
