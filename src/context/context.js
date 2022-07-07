@@ -14,6 +14,7 @@ export function AuthProvider ({children}){
     const [uid, setUid] = useState(cookies.uid)
     const [posts, setPosts] = useState(null)
     const [search, setSearch] = useState('')
+    const [postBool, setPostBool] = useState(true)
     if(posts){
         posts.sort((a,b)=>{
           return b.date - a.date;
@@ -55,7 +56,9 @@ return(
         setPosts,
         search,
         setSearch,
-        cookies
+        cookies,
+        postBool,
+        setPostBool
     }}
     >
         {children}
