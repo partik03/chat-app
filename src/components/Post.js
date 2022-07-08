@@ -1,5 +1,6 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../componentStyles/Post.css'
 const Post = ({el}) => {
   return (
@@ -9,11 +10,18 @@ const Post = ({el}) => {
         background:"rgb(61, 59, 59)",
     }}>
             <div className="top">
-            <Avatar src={el.profImg} />
+            <Link to={`/friendprofile/${el.uid}`} 
+           
+            ><Avatar src={el.profImg} /></Link>
             <div className="top-data" style={{
                 margin:"1rem"
             }}>
-                <h4 style={{margin:"0rem"}}>{el.username}</h4>
+                <Link to={`/friendprofile/${el.uid}`} 
+                 style={{
+                    textDecoration:'none',
+                    color:'white'
+                }}
+                ><h4 style={{margin:"0rem"}}>{el.username}</h4></Link>
                 <p style={{
                     margin:"0rem"
                 }}>{el.email}</p>
@@ -23,12 +31,18 @@ const Post = ({el}) => {
             <img src={el.postImage} alt="" />
             </div>
             <div className="bottom">
-                <span
+            <Link to={`/friendprofile/${el.uid}`} 
+                 style={{
+                    textDecoration:'none',
+                    color:'white'
+                }}
+                ><span
                 style={{
                     marginRight:'1rem',
                     fontWeight:'bolder'
                 }}
                 >{el.username}</span>
+                </Link>
            {el.desc}
             </div>
         </div>
